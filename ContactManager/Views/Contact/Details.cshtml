@@ -1,0 +1,27 @@
+﻿@model ContactInfo
+@{
+    ViewBag.Title = "Contact Details";
+}
+
+<h2>@ViewBag.Title</h2>
+<table class="table table-bordered table-striped">
+    <thead>Star Wars Little Black Book</thead>
+    <tbody>
+        <tr><td>Name:</td><td>@Model.FirstName, @Model.LastName</td> </tr>
+        <tr><td>Phone:</td><td>@Model.PhoneNumber</td> </tr>
+        <tr><td>Email:</td><td>@Model.Email</td> </tr>
+        <tr><td>Category:</td><td>@Model.Category.Name</td> </tr>
+        <tr><td>Organization:</td><td>@Model.Organization</td> </tr>
+        <tr><td>Date Created:</td><td>@Model.CreateDate.ToShortDateString()</td> </tr>
+    </tbody>
+</table>
+<a asp-controller="Contact" asp-action="Edit"
+   asp-route-id="@Model.ContactInfoID"
+   asp-route-slug="@Model.Slug"
+   class="btn btn-primary">Edit</a>
+<a asp-controller="Contact" asp-action="Delete"
+   asp-route-id="@Model.ContactInfoID"
+   asp-route-slug="@Model.Slug"
+   class="btn btn-primary">Delete</a>
+<a asp-controller="Home" asp-action="Index"
+   class="btn btn-primary">Home</a>
